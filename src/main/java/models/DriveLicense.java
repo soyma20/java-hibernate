@@ -12,25 +12,17 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
-@NoArgsConstructor
 @Getter
 @Setter
 @ToString
-public class Car implements Serializable {
+@NoArgsConstructor
+public class DriveLicense implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String model;
-    private Type type;
-    private int power;
-    private int price;
-    private int year;
+    private String series;
 
-    public Car(String model, Type type, int power, int price, int year) {
-        this.model = model;
-        this.type = type;
-        this.power = power;
-        this.price = price;
-        this.year = year;
+    public DriveLicense(String series) {
+        this.series = series;
     }
 }
