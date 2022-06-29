@@ -32,7 +32,7 @@ public class Main {
         Session session = sessionFactory.openSession();
 
         session.beginTransaction();
-
+//
 //        ArrayList<Car> ivanCars = new ArrayList<>();
 //        ivanCars.add(new Car("tesla", Type.SEDAN,2000,2000,2000));
 //        ivanCars.add(new Car("zaz", Type.SEDAN,1000,1000,1000));
