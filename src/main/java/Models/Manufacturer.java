@@ -14,25 +14,26 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class Wheels implements Serializable {
+public class Manufacturer implements Serializable {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private int id;
-    private String size;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "wheels_manufacturers",
-            joinColumns = @JoinColumn(name = "wheel_id"),
-            inverseJoinColumns = @JoinColumn(name = "manufacturer_id")
+            joinColumns = @JoinColumn(name = "manufacturer_id"),
+            inverseJoinColumns = @JoinColumn(name = "wheel_id")
     )
-    private List<Manufacturer> manufacturers;
+    private List<Wheels> wheels;
+    private String name;
 
-    public Wheels(String size, List<Manufacturer> manufacturers) {
-        this.size = size;
-        this.manufacturers = manufacturers;
+    public Manufacturer(List<Wheels> wheels, String name) {
+        this.wheels = wheels;
+        this.name = name;
     }
 
-    public Wheels(String size) {
-        this.size = size;
+    public Manufacturer(String name) {
+        this.name = name;
     }
 }
