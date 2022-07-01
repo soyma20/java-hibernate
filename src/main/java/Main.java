@@ -1,3 +1,5 @@
+import Models.Car;
+import Models.Owner;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -12,9 +14,8 @@ public class Main {
                 .build();
 
         Metadata metadata = new MetadataSources(serviceRegistry)
-                .addAnnotatedClass(null)
-                .addAnnotatedClass(null)
-                .addAnnotatedClass(null)
+                .addAnnotatedClass(Owner.class)
+                .addAnnotatedClass(Car.class)
                 .getMetadataBuilder()
                 .build();
 
@@ -27,11 +28,14 @@ public class Main {
         session.beginTransaction();
 
 
+
+
+
+
         session.getTransaction().commit();
 
         session.close();
         sessionFactory.close();
-
 
     }
 }
